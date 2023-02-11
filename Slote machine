@@ -1,0 +1,52 @@
+import random
+def slot_game():
+    start = 'roll'
+    money = 100
+    loss = 0
+    while start != 'stop' and money > 0 and start == 'roll':
+        number1 = random.randint(1, 7)
+        number2 = random.randint(1, 7)
+        number3 = random.randint(1, 7)
+        number4 = random.randint(1, 7)
+        number5 = random.randint(1, 7)
+        number6 = random.randint(1, 7)
+        number7 = random.randint(1, 7)
+        number8 = random.randint(1, 7)
+        number9 = random.randint(1, 7)
+        if start == 'roll':
+            print(f' {number1}|{number2}|{number3}\n'
+                  f' {number4}|{number5}|{number6}\n'
+                  f' {number7}|{number8}|{number9}')
+            loss =int(money / 10)
+            money = money - loss
+            win = money / 1
+            if number1 == number2 == number3:
+                print(f'You gained {win}$')
+                money = money + win
+            if number4 == number5 == number6:
+                print(f'You gained {win}$')
+                money = money + win
+            if number7 == number8 == number9:
+                print(f'You gained {win}$')
+                money = money + win
+            if number1 == number4 == number7:
+                print(f'You gained {win}$')
+                money = money + win
+            if number2 == number5 == number8:
+                print(f'You gained {win}$')
+                money = money + win
+            if number3 == number6 == number9:
+                print(f'You gained {win}$')
+                money = money + win
+            if number1 == number5 == number9:
+                print(f'You gained {win}$')
+                money = money + win
+            if number3 == number5 == number7:
+                print(f'You gained {win}$')
+                money = money + win
+        print(f'Your total money is now {money}$')
+        start = input('stop or roll: ').lower()
+    print('Game Over!!!')
+
+slot_game()
+
